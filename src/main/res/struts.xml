@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <constant name="struts.action.extension" value="action,do,,"/>
+    <constant name="struts.enable.DynamicMethodInvocation"
+              value="true"/>
+    <constant name="struts.multipart.maxSize" value="31457280"/>
+
+    <package name="xxxxx" extends="struts-default" namespace="/user">
+
+        <global-results>
+            <result name="success">/success.jsp</result>
+            <result name="page1">/page1.jsp</result>
+            <result name="page2">/page2.jsp</result>
+        </global-results>
+
+        <action name="hello"
+                class="cn.xxyangyoulin.action.HelloAction" method="execute">
+            <result name="success">/success.jsp</result>
+        </action>
+
+        <!--<action name="page_*"-->
+        <!--class="cn.xxyangyoulin.action.PageAction"-->
+        <!--method="{1}">-->
+        <!--<result name="{1}">/{1}.jsp</result>-->
+        <!--</action>-->
+
+        <!--动态方法调用 /user/page!page1-->
+        <action name="page" class="cn.xxyangyoulin.action.PageAction">
+
+        </action>
+
+        <action name="type" class="cn.xxyangyoulin.action.TypeAction">
+            <result name="success">/success.jsp</result>
+        </action>
+
+
+        <action name="upload" class="cn.xxyangyoulin.action.UploadAction">
+
+            <!--限制文件上传的类型-->
+            <interceptor-ref name="defaultStack">
+                <!--限制扩展名-->
+                <param name="fileUpload.allowedExtensions">txt,jpg</param>
+                <!--限制文件类型-->
+                <param name="fileUpload.allowedType">text/plain</param>
+            </interceptor-ref>
+
+
+            <result name="success">/success.jsp</result>
+            <result name="input">/uploaderr.jsp</result>
+        </action>
+
+        <action name="list" class="cn.xxyangyoulin.action.UploadAction" method="list">
+            <result name="list">/list.jsp</result>
+        </action>
+
+        <action name="down" class="cn.xxyangyoulin.action.UploadAction" method="down">
+            <result name="success" type="stream">
+
+                <!-- 运行下载的文件的类型:指定为所有的二进制文件类型 -
+                注意一定要加入charset，否则某些时候会导致下载的文件出错； -->->
+                <param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+
+                <!-- 对应的是Action中属性： 返回流的属性【其实就是getAttrInputStream()】 -->
+                <param name="inputName">attrInputStream</param>
+
+                <!-- 下载头，包括：浏览器显示的文件名 -->
+                <param name="contentDisposition">attachment;filename=${downFileName}</param>
+
+                <!-- 缓冲区大小设置 -->
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+
+        <action name="test">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>
