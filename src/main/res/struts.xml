@@ -9,6 +9,8 @@
               value="true"/>
     <constant name="struts.multipart.maxSize" value="31457280"/>
 
+    <include file="/interceptor"/>
+
     <package name="xxxxx" extends="struts-default" namespace="/user">
 
         <global-results>

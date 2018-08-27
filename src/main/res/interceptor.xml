@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="interceptor" extends="struts-default" namespace="/">
+
+        <!--拦截器配置-->
+        <interceptors>
+            <interceptor name="helloInterceptor"
+                         class="cn.xxyangyoulin.interceptor.HelloInterceptor"/>
+            <interceptor name="oneNextInterceptor" class="cn.xxyangyoulin.interceptor.OneNextInterceptor"/>
+
+            <!--自定义一个拦截器栈-->
+            <interceptor-stack name="HelloInterceptor">
+                <!--引用默认栈 一定要放到第一行-->
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="helloInterceptor"/>
+                <interceptor-ref name="oneNextInterceptor"/>
+
+            </interceptor-stack>
+        </interceptors>
+
+        <!--执行拦截器-->
+        <default-interceptor-ref name="HelloInterceptor"/>
+
+        <action name="inter" class="cn.xxyangyoulin.interceptor.HelloAction">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+</struts>
