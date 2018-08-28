@@ -10,8 +10,8 @@
   </head>
   
   <body>
-  	 <form method="post" action="${pageContext.request.contextPath }/user/demo_login.action">
-  	 	用户名：<input type="text" name="admin.userName"><br/>
+  	 <form method="post" action="${pageContext.request.contextPath }/demo/demo_login.action">
+  	 	用户名：<input type="text" name="admin.name"><br/>
   	 	密码：<input type="text" name="admin.pwd"><br/>
   	 	<input type="submit" value="登陆"><br/>
   	 </form>

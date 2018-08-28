@@ -1,7 +1,9 @@
 <c3p0-config>
   <default-config>
-     <property name="driverClass">com.mysql.jdbc.Driver</property> 
+     <property name="driverClass">com.mysql.jdbc.Driver</property>
      <property name="jdbcUrl">jdbc:mysql:///test</property>
+     <!--<property name="driverClass">org.mariadb.jdbc.Driver</property>-->
+     <!--<property name="jdbcUrl">jdbc:maria:///test</property>-->
      <property name="user">root</property>
      <property name="password">root</property> 
      <property name="initialPoolSize">5</property> 

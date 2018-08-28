@@ -10,7 +10,7 @@
   </head>
   
   <body>
-  	<h1>欢迎你，${userInfo.userName }</h1>
+  	<h1>欢迎你，${userInfo.name }</h1>
   	<table align="center" border="1">
   		<tr>
   			<td>序号</td>
@@ -30,7 +30,7 @@
   					<s:property value="#admin.id"/>
   				</td>
   				<td>
-  					<s:property value="#admin.userName"/>
+  					<s:property value="#admin.name"/>
   				</td>
   				<td>
   					<s:property value="#admin.pwd"/>

@@ -14,6 +14,9 @@ public class UserAction extends ActionSupport {
 		return admin;
 	}
 	public void setAdmin(Admin admin) {
+		System.out.println(admin.getName()+"-"+admin.getPwd());
+		admin.setName("admin");
+		admin.setPwd("admin");
 		this.admin = admin;
 	}
 

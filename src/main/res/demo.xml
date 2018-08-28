@@ -10,17 +10,16 @@
 	<package name="demo" extends="struts-default" namespace="/demo">
 	
 		<!-- 【拦截器配置】 -->
-		<!--<interceptors>-->
-			<!--<interceptor name="loginCheck" class="cn.itcast.interceptor.UserCheckInterceptor"></interceptor>-->
-			<!--<interceptor-stack name="myStack">-->
-				<!--<interceptor-ref name="defaultStack"></interceptor-ref>-->
-				<!--<interceptor-ref name="loginCheck"></interceptor-ref>-->
-			<!--</interceptor-stack>-->
-		<!--</interceptors>-->
-		<!-- 【执行拦截器:第一种写法： 当前包下所有的acntion都执行myStack栈】
-		<default-interceptor-ref name="myStack"></default-interceptor-ref>
-		 -->
-	
+		<interceptors>
+			<interceptor name="loginCheck" class="cn.xxyangyoulin.demo1.interceptor.UserCheckInterceptor"/>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="loginCheck"/>
+			</interceptor-stack>
+		</interceptors>
+		 <!--【执行拦截器:第一种写法： 当前包下所有的acntion都执行myStack栈】-->
+		<default-interceptor-ref name="myStack"/>
+
 		<!-- 全局配置 -->
 		<global-results>
 			<result name="error">/error.jsp</result>
@@ -42,12 +41,14 @@
 			<result name="input">/demologin.jsp</result>
 			
 			<!-- 2. 登陆成功 -->
-			<result name="loginSuccess" type="redirectAction">user_list</result>
+			<result name="loginSuccess" type="redirectAction">demo_list</result>
 			
 			<!-- 3. 列表展示 -->
 			<result name="list">/WEB-INF/list.jsp</result>
 			
 		</action>
+
+
 		
 	</package>
 </struts>

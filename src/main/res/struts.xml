@@ -10,7 +10,7 @@
     <constant name="struts.multipart.maxSize" value="31457280"/>
 
     <include file="/interceptor.xml"/>
-    <include file="/cn/xxyangyoulin/demo1/demo.xml"/>
+    <include file="/demo.xml"/>
 
     <package name="xxxxx" extends="struts-default" namespace="/user">
 
@@ -83,27 +83,5 @@
             <result name="success">/index.jsp</result>
         </action>
 
-        <action name="demo_*" class="cn.xxyangyoulin.demo1.action.UserAction" method="{1}">
-
-            <!--第二种写法： 只是在这一个Action中执行myStack栈
-            <interceptor-ref name="defaultStackt"></interceptor-ref>
-            <interceptor-ref name="loginCheck"></interceptor-ref>
-            -->
-
-            <!-- 第三种写法：执行用户栈(与第二种写法一样， 只在当前aciton中执行自定义栈) -->
-            <!--<interceptor-ref name="myStack"></interceptor-ref>-->
-
-
-
-            <!-- 1. 登陆失败 -->
-            <result name="input">/demologin.jsp</result>
-
-            <!-- 2. 登陆成功 -->
-            <result name="loginSuccess" type="redirectAction">demo_list</result>
-
-            <!-- 3. 列表展示 -->
-            <result name="list">/WEB-INF/list.jsp</result>
-
-        </action>
     </package>
 </struts>

@@ -12,11 +12,11 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 public class AdminDao {
 
 	public Admin login(Admin admin){
-		String sql = "select * from admin where userName=? and pwd=?";
+		String sql = "select * from admin where name=? and pwd=?";
 		try {
 			return JdbcUtils.getQuerrRunner()
 				.query(
-					sql, new BeanHandler<Admin>(Admin.class), admin.getUserName(), admin.getPwd());
+					sql, new BeanHandler<Admin>(Admin.class), admin.getName(), admin.getPwd());
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
