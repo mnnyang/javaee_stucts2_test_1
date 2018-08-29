@@ -4,6 +4,11 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 
+
+    <!--### 国际化 Load custom default resource bundles-->
+    <constant name="struts.custom.i18n.resources" value="/config/msg"/>
+
+
     <constant name="struts.action.extension" value="action,do,,"/>
     <constant name="struts.enable.DynamicMethodInvocation"
               value="true"/>
@@ -81,6 +86,13 @@
 
         <action name="test">
             <result name="success">/index.jsp</result>
+        </action>
+
+        <action name="demo2" class="cn.ognl.OgnlDemo2">
+            <result name="success">/demo2.jsp?name=${#request.request_data}</result>
+        </action>
+        <action name="demo3" class="cn.ognl.OgnlDemo3">
+            <result name="success">/demo3.jsp</result>
         </action>
 
     </package>

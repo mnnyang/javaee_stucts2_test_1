@@ -7,22 +7,22 @@
 
         <!--拦截器配置-->
         <interceptors>
-            <interceptor name="helloInterceptor"
-                         class="cn.xxyangyoulin.interceptor.HelloInterceptor"/>
+            <!--<interceptor name="helloInterceptor"-->
+                         <!--class="cn.xxyangyoulin.interceptor.HelloInterceptor"/>-->
             <interceptor name="oneNextInterceptor" class="cn.xxyangyoulin.interceptor.OneNextInterceptor"/>
 
             <!--自定义一个拦截器栈-->
             <interceptor-stack name="HelloInterceptor">
                 <!--引用默认栈 一定要放到第一行-->
                 <interceptor-ref name="defaultStack"/>
-                <interceptor-ref name="helloInterceptor"/>
+                <!--<interceptor-ref name="helloInterceptor"/>-->
                 <interceptor-ref name="oneNextInterceptor"/>
 
             </interceptor-stack>
         </interceptors>
 
         <!--执行拦截器-->
-        <default-interceptor-ref name="HelloInterceptor"/>
+        <!--<default-interceptor-ref name="HelloInterceptor"/>-->
 
         <action name="inter" class="cn.xxyangyoulin.interceptor.HelloAction">
             <result name="success">/success.jsp</result>
