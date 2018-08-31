@@ -5,7 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="test2" extends="/struts-default">
+    <package name="test2" extends="struts-default">
 
     </package>
 </struts>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: xxyangyoulin
@@ -11,6 +12,10 @@
     <title>Title</title>
 </head>
 <body>
-login
+<form method="post" action="${pageContext.request.contextPath }/user/login">
+    用户名：<input type="text" name="user.name"><s:fielderror fieldName="user.name"/><br/>
+    密码：<input type="text" name="user.pwd"><s:fielderror fieldName="user.pwd"/><br/>
+    <input type="submit" value="登陆"><br/>
+</form>
 </body>
 </html>
